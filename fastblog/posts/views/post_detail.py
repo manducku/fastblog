@@ -32,7 +32,5 @@ def post_detail(request, pk):
                     ), 
                 )
 
-class PostDetailView(PostBaseView, DetailView):
-    template_name="posts/post_detail.html"
 
 

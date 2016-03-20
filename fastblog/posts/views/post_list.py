@@ -19,4 +19,3 @@ class PostListView(PostBaseView, CreateView):
         return reverse("post-list")
 
 
-
