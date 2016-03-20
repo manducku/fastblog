@@ -4,7 +4,7 @@ from posts.models import Post
 
 class Comment(models.Model):
     
-    post = models.ForeignKey(Post)
+    post = models.ForeignKey("Post")
     content = models.CharField(max_length=20)
     create_at = models.DateTimeField(
         auto_now_add=True,
