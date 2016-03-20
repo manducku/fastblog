@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from posts.models import Post 
 from django.core.urlresolvers import reverse
 
-def posts(request):
+def post_list(request):
 
     if(request.method =="GET"):
         context = { 

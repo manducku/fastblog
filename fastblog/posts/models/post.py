@@ -11,6 +11,14 @@ class Post(models.Model):
             auto_now = True,
             )
 
+    class META:
+        verbose_name = "POST"
+        verbose_name_plura= verbose_name
+
+
+    def __str__(self,):
+        return self.title
+
 
 
 

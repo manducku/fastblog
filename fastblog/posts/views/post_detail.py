@@ -2,7 +2,7 @@ from posts.models import Post
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 
-def post(request, pk):
+def post_detail(request, pk):
 
     post = Post.objects.get(pk=pk)
     
