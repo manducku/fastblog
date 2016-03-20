@@ -3,8 +3,9 @@ from posts.models import Post
 from django.core.urlresolvers import reverse
 from django.views.generic import View, ListView, CreateView 
 from .post_base import PostBaseView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class PostListView(PostBaseView, CreateView):
+class PostListView(LoginRequiredMixin, PostBaseView, CreateView):
     template_name="posts/post_list.html"
     fields= [
             "title",
