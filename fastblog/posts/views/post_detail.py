@@ -3,8 +3,9 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from .post_base import PostBaseView
 from django.views.generic import DetailView 
+from django.contrib.auth.decorators import login_required
 
-
+@login_required()
 def post_detail(request, pk):
     
     post = Post.objects.get(pk=pk)
