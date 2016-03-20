@@ -1,6 +1,8 @@
 from posts.models import Post
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
+from .post_base import PostBaseView
+from django.views.generic import DetailView 
 
 
 def post_detail(request, pk):
@@ -30,5 +32,7 @@ def post_detail(request, pk):
                     ), 
                 )
 
+class PostDetailView(PostBaseView, DetailView):
+    template_name="posts/post_detail.html"
 
 
