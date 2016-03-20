@@ -18,11 +18,13 @@ from django.contrib import admin
 from fastblog.views import HomeView
 from posts.views import post_detail
 from posts.views import PostListView
+from users.views import SignupView 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name="home"),
     url(r'^posts/$', PostListView.as_view(), name = "post-list"),
     url(r'^posts/(?P<pk>[0-9]+)/$', post_detail, name="post-detail"),
+    url(r'^signup/$', SignupView.as_view(),name="signup"),
 
 ]
