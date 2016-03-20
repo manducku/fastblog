@@ -1,31 +1,22 @@
 from django.shortcuts import render,redirect
 from posts.models import Post 
 from django.core.urlresolvers import reverse
+from django.views.generic import View, ListView, CreateView 
+from .post_base import PostBaseView
 
-def post_list(request):
+class PostListView(PostBaseView, CreateView):
+    template_name="posts/post_list.html"
+    fields= [
+            "title",
+            "content",
+           ] 
+    
+    def get_context_data(self, **kwargs):
+        kwargs['posts']=Post.objects.all()
+        return super(PostListView, self).get_context_data(**kwargs)
+   
+    def get_success_url(self,**kwargs):
+        return reverse("post-list")
 
-    if(request.method =="GET"):
-        context = { 
-                "posts": Post.objects.all()
-                }
-        print ("hello")
-        return render(
-                request,
-                "posts/posts.html",
-                context = context, 
-                )
-        
-    if(request.method =="POST"):
-        title = request.POST.get("title")
-        content = request.POST.get("content")
-        post=Post.objects.create(
-                title=title,
-                content=content,
-                )
-        return redirect(
-                reverse(
-                    "posts"
-                    )
-                )
 
 
