@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from fastblog.views import HomeView
+from posts.views import posts
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^home/', HomeView.as_view()),
+    url(r'^posts/', posts, name = "posts"),
 ]
