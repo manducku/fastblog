@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from fastblog.views import HomeView
-from posts.views import posts
+from posts.views import post_list
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/', HomeView.as_view()),
-    url(r'^posts/', posts, name = "posts"),
+    url(r'^$', HomeView.as_view(), name="home"),
+    url(r'^posts/$', post_list, name = "post-list"),
+
 ]
