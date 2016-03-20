@@ -14,7 +14,8 @@ class LoginView(TemplateView):
 
         username=request.POST.get("username")
         password=request.POST.get("password")
-        
+        next=request.POST.get("next") or reverse("home")
+
         user=authenticate(
                 username=username,
                 password=password,
@@ -29,9 +30,7 @@ class LoginView(TemplateView):
                     )
 
             return redirect(
-                    reverse(
-                        "home"
-                        )
+                        next
                     )
         return redirect(
             reverse(
