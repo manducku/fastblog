@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> POST TITLE </h1> 
+    <ul>
+    {% for post in posts %}
+    <li>
+        <a href= "{% url 'post-detail' pk=post.id %}"> 
+        <h3> {{post.title}} </h3>
+        </a>
+    </li>
+    {% endfor %}
+    </ul>
+    <form action="{%url 'post-list'%}" method="POST">
+    
+        {% csrf_token %}
+        <input type="text" name="title">
+        <input type="textarea" name="content"> 
+        <input type="submit">
+    
+    </form>
+
+{% endblock %}
