@@ -1,1 +1,30 @@
 <h3> it`s header </h3>
+
+{% if request.user.is_authenticated %}
+    <span>
+        <a href="{% url 'logout'%}">
+        LOGOUT
+        </a>
+    </span>
+{% else %}
+    <span>
+        <a href="{% url 'login' %}">
+            LOGIN 
+        </a>
+    </span>
+
+    <span>
+        <a href="{% url 'signup'%}">
+            SIGN UP
+        </a>
+    </span>
+{% endif %}
+
+<div>
+    {% if request.user.is_authenticated %}
+        <h4> {{request.user.id}} </h4>
+    {% else %}
+        <h4> you need LOGIN </h4>
+    {% endif %}
+
+    
