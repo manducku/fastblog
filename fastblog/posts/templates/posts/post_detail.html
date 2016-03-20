@@ -1,10 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<p>
 <h1>Post Detail<h1>
         <h3>post title:{{post.title}} <h3>
         <h3> post create: {{post.create_at}}</h3>
         <h3>post content: {{post.content}} </h3>
+</p>
+
+<div>
+    <h2>it comment area</h2>
+    
+    {% for comment in post.comment_set.all %}
+        <h4> {{comment.content}} </h4>
+    {% endfor %}
+
+</div>
+
+
+
+<form action="{{ post.get_absoluete_url }}", method="POST">
+    {% csrf_token %}
+
+    <input type-"text", name="content">
+    <input type="submit">
+
+</form>
+
 
 {% endblock %}
