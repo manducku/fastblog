@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name="home"),
     url(r'^posts/$', post_list, name = "post-list"),
-    url(r'^posts/(?P<pk>[0-9]+)/$', post_detail, name="post-detail),
+    url(r'^posts/(?P<pk>[0-9]+)/$', post_detail, name="post-detail"),
 
 ]
